@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control del sueño</title>
+    <link rel="stylesheet" href="stylessueño.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Secular+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="contlog"> <a href="index2.html">
+                <img class="logo" src="zyro-image.png">
+            </a></div>
+
+    </header>
+    <article>
+        <div class="contmen">
+            <a href="menu.html">
+                <div class="menu">
+                    <h3>Menú</h3>
+            </a>
+        </div>
+        </div>
+
+        <div class="art">
+            <div class="apart">
+                <h1 class="tit ra">CALIDAD DEL SUEÑO</h1>
+            </div>
+        </div>
+        <br><br><br>
+        <form>
+            <div class="datos">
+                <label for="edad">Edad:</label>
+                <input type="text" id="edad"><br><br><br>
+                <label for="hdor">Hora a la que te dormiste: </label>
+                <input type="time" id="hdor"><br><br><br>
+                <label for="hdor">Hora a la que te despertaste: </label>
+                <input type="time" id="hdes"><br><br><br>
+
+
+
+            </div>
+            <button type="button" onclick="CalcHS()">Resultado</button>
+
+
+
+            <div id="respuesta"></div>
+
+
+        </form>
+
+
+
+        </div>
+    </article>
+    <script>
+        function CalcHS() {
+            var edad = document.getElementById('edad').value;
+            var fecSueño = document.getElementById('hdor').value;
+            var fecDesp = document.getElementById('hdes').value;
+            var hDormidas = Math.round((new Date('1970/01/01 ' + fecDesp) - new Date('1970/01/01 ' + fecSueño)) / 3600000);
+
+
+            if (edad === '1 mes' || edad === '2 meses' || edad === '3 meses') {
+                document.getElementById('respuesta').innerHTML = ("Has dormido un total de " + hDormidas + " horas." + "<br><br>" + "Para tu edad lo recomendable seria dormir entre unas 14 y 17 horas");
+            } else if (edad === '4 meses' || edad === '5 meses' || edad === '6 meses' || edad === '7 meses' || edad === '8 meses' || edad === '9 meses' || edad === '10 meses' || edad === '11 meses') {
+                document.getElementById('respuesta').innerHTML = ("Has dormido un total de " + hDormidas + " horas." + "<br><br>" + "Para tu edad lo recomendable seria dormir entre unas 12 y 15 horas");
+            } else if (1 <= parseInt(edad) && parseInt(edad) <= 2) {
+                document.getElementById('respuesta').innerHTML = ("Has dormido un total de " + hDormidas + " horas." + "<br><br>" + "Para tu edad lo recomendable seria dormir entre unas 11 y 14 horas");
+            } else if (3 <= parseInt(edad) && parseInt(edad) <= 5) {
+                document.getElementById('respuesta').innerHTML = ("Has dormido un total de " + hDormidas + " horas." + "<br><br>" + "Para tu edad lo recomendable seria dormir entre unas 10 y 13 horas");
+            } else if (6 <= parseInt(edad) && parseInt(edad) <= 13) {
+                document.getElementById('respuesta').innerHTML = ("Has dormido un total de " + hDormidas + " horas." + "<br><br>" + "Para tu edad lo recomendable seria dormir entre unas 9 y 11 horas");
+            } else if (14 <= parseInt(edad) && parseInt(edad) <= 17) {
+                document.getElementById('respuesta').innerHTML = ("Has dormido un total de " + hDormidas + " horas." + "<br><br>" + "Para tu edad lo recomendable seria dormir entre unas 8 y 10 horas");
+            } else if (18 <= parseInt(edad) && parseInt(edad) <= 65) {
+                document.getElementById('respuesta').innerHTML = ("Has dormido un total de " + hDormidas + " horas." + "<br><br>" + "Para tu edad lo recomendable seria dormir entre unas 7 y 9 horas");
+            } else if (65 <= parseInt(edad && parseInt(edad) <= 120)) {
+                document.getElementById('respuesta').innerHTML = ("Has dormido un total de " + hDormidas + " horas." + "<br><br>" + "Para tu edad lo recomendable seria dormir entre unas 7 y 8 horas");
+            } else {
+                alert('Los datos introducidos no son correctos, estan vacios o has superado el limite de 120 años');
+            }
+        }
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

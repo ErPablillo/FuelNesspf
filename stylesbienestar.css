@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), #586276;
+}
+
+header {
+    display: flex;
+    width: 101%;
+    height: 120px;
+    background: #91D206;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (min-width: 768px) {
+    .menu {
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+
+.contlog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo {
+    width: 222px;
+    height: 74px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 22px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1s;
+    margin: 0 auto;
+}
+
+
+.logo:hover {
+    transform: scale(1.1);
+
+}
+
+.conmen {
+    width: 100%;
+}
+
+.menu {
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 138px;
+    height: 41px;
+    background: #D9D9D9;
+    border: 2px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 20px 20px;
+}
+
+
+.art {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aparte {
+    border: 5px solid #91D206;
+    width: 913px;
+    height: 214px;
+    text-align: center;
+    background: url(SUEÑO.jpg);
+    transition: transform, 1s;
+    margin-bottom: 3em;
+}
+
+.aparte:hover {
+    transform: scale(1.1);
+}
+
+.apartado {
+    border: 5px solid #91D206;
+    width: 913px;
+    height: 214px;
+    text-align: center;
+    background: url(RELAJACIÓN.jpg);
+    transition: transform, 1s;
+}
+
+.apartado:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+
+a {
+    text-decoration: none;
+}
+
+.tit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 913px;
+    height: 214px;
+    margin-top: 0px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 50px;
+    line-height: 130%;
+    color: transparent;
+    /* Hace que el texto sea transparente */
+    -webkit-text-fill-color: transparent;
+    /* Color de relleno transparente para Safari */
+    -webkit-text-stroke: 2px white;
+    /* Contorno blanco de 2px */
+    background-image: url(como-preservar-hojas-verdissimo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    /* Propiedad específica para WebKit (Safari, Chrome) */
+    background-clip: text;
+    /* Para navegadores que admiten la propiedad background-clip */
+    -webkit-text-stroke: 1px white;
+    /* Contorno blanco de 1px para el exterior del texto */
+    -webkit-text-stroke-width: 1px;
+    /* Grosor del contorno */
+    -webkit-text-fill-color: transparent;
+    /* Color de relleno transparente para Safari */
+
+}

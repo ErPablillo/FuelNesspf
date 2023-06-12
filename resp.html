@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesrep.css">
+</head>
+
+<body>
+    <header>
+        <div class="contlog"> <a href="index2.html">
+                <img class="logo" src="zyro-image.png">
+            </a></div>
+
+    </header>
+    <article>
+        <div class="contmen">
+            <a href="menu.html">
+                <div class="menu">
+                    <h3>Menú</h3>
+                </div>
+            </a>
+        </div>
+        <main>
+            <div id="circulof"></div>
+            <div id="circulom">
+                <button id="empezar" onclick="iniciarProceso()">
+                    <div id="play"></div>
+                </button>
+                <button id="reiniciar" onclick="reiniciarProceso()" style="display: none;">
+                    Reiniciar
+                </button>
+                <span id="textoRespiracion" class="texto-respiracion"></span>
+            </div>
+        </main>
+    </article>
+
+    <script>
+        function iniciarProceso() {
+            const pulmon = document.getElementById("circulom");
+            const empezarButton = document.getElementById("empezar");
+            const reiniciarButton = document.getElementById("reiniciar");
+            const textoRespiracion = document.getElementById("textoRespiracion");
+            const tiempo = 60000;
+
+            empezarButton.style.display = "none"; // Ocultar el botón de empezar
+
+            aumentar(pulmon);
+            mostrarTexto(pulmon, textoRespiracion, "Respira"); // Mostrar texto "Inspira"
+
+            setTimeout(function () {
+                disminuir(pulmon);
+                mostrarTexto(pulmon, textoRespiracion, ""); // Limpiar texto
+                setTimeout(function () {
+                    reiniciarButton.style.display = "block"; // Mostrar el botón de reiniciar al finalizar
+                }, 1000);
+            }, tiempo);
+        }
+
+        function reiniciarProceso() {
+            const pulmon = document.getElementById("circulom");
+            const empezarButton = document.getElementById("empezar");
+            const reiniciarButton = document.getElementById("reiniciar");
+            const textoRespiracion = document.getElementById("textoRespiracion");
+
+            reiniciarButton.style.display = "none"; // Ocultar el botón de reiniciar
+
+            aumentar(pulmon);
+
+            setTimeout(function () {
+                disminuir(pulmon);
+                mostrarTexto(pulmon, textoRespiracion, ""); // Limpiar texto
+                setTimeout(function () {
+                    empezarButton.style.display = "block"; // Mostrar el botón de empezar después de reiniciar
+                }, 1000);
+            }, 60000);
+        }
+
+        function aumentar(pulmon) {
+            pulmon.classList.add("animacion-respiracion");
+        }
+
+        function disminuir(pulmon) {
+            pulmon.classList.remove("animacion-respiracion");
+        }
+
+        function mostrarTexto(pulmon, textoElement, texto) {
+            textoElement.textContent = texto;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora calórica</title>
+    <link rel="stylesheet" href="stylesimc.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Secular+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="contlog"> <a href="index2.html">
+                <img class="logo" src="zyro-image (1).png">
+            </a></div>
+
+    </header>
+    <article>
+        <div class="contmen">
+            <a href="menu.html">
+                <div class="menu">
+                    <h3>Menú</h3>
+                </div>
+            </a>
+        </div>
+
+        <div class="art">
+            <div class="apart">
+                <h1 class="tit ra">IMC</h1>
+            </div>
+        </div>
+        <br><br><br>
+        <form>
+            <div class="datos">
+
+                <label for="altura">Altura(Cm): </label>
+                <input type="text" id="altura"><br><br><br>
+                <label for="peso">Peso(Kg): </label>
+                <input type="text" id="peso"><br><br><br>
+            </div>
+            <button type="button" onclick="CalcCal()">Resultado</button>
+            <div id="respuesta"></div>
+        </form>
+
+
+
+        </div>
+    </article>
+    <script>
+        function CalcCal() {
+            var altura = parseInt(document.getElementById("altura").value);
+            var peso = parseInt(document.getElementById("peso").value);
+
+            altura = altura / 100;
+
+            var imc = peso / Math.pow(altura, 2);
+
+            if (isNaN(imc)) {
+                alert("Introduce los datos tal y como se te piden");
+            } else {
+                document.getElementById("respuesta").innerHTML = ("El resultado de tu IMC es: " + imc);
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

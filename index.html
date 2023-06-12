@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">S
+    <title>FuelNess</title>
+</head>
+
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="pexels-t-leish-9020663-3840x2160-25fps.mp4" type="video/mp4">
+    </video>
+    <main>
+
+        <article>
+            <div class="logo">
+                <a class="usuario" href="login.html">
+                    <img class="usuario" src="pngegg.png" alt="">
+                </a>
+            </div>
+
+            <div id="boton">
+                <h1>PULSE PARA CONTINUAR</h1>
+            </div>
+        </article>
+
+    </main>
+    <script>
+        document.getElementById('boton').onclick = function () {
+            alert('¡No puedes continuar hasta que no inicies sesión o que te registres!');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+body {
+    background-color: #daf099;
+    overflow: hidden;
+
+
+
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1528px;
+    height: 697px;
+    border-radius: 3%;
+}
+
+video {
+    z-index: -1;
+    width: 1836px;
+    height: auto;
+    margin: -8px 0px 0px -17px;
+    position: absolute;
+
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 900px;
+    height: 601px;
+    border-radius: 3%;
+    z-index: 1;
+    box-shadow: 5px 7px 49px 5px;
+    background-image: url(zyro-image.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.usuario img {
+    float: right;
+    width: 50px;
+    border-radius: 50px;
+    transition: 0.9s ease all;
+}
+
+.usuario:hover img {
+    background-color: #c7eb5b;
+    transform: scale(1.1);
+
+}
+
+
+#boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #70934d;
+    border-radius: 50px;
+    padding: 22px;
+    z-index: 1;
+    position: absolute;
+    background-color: #daf099;
+    font-size: 14px;
+    width: auto;
+    margin-top: 360px;
+    letter-spacing: 4px;
+    transition: background-color, 0.5s;
+    margin-left: 15px;
+    transition: 0.6s ease all;
+    text-decoration: none;
+
+
+
+}
+
+
+#boton:hover {
+    background-color: #c7eb5b;
+    transform: scale(1.2);
+
+
+}
+
+h1 {
+    font-family: 'Secular One', sans-serif;
+    color: #f9ec74;
+    text-shadow: 3px 1px 9px black;
+}

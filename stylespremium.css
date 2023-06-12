@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), #586276;
+}
+
+header {
+    display: flex;
+    width: 101%;
+    height: 120px;
+    background: #F1CC5E;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (min-width: 768px) {
+    .menu {
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+
+.contlog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo {
+    width: 222px;
+    height: 74px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 22px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1s;
+    margin: 0 auto;
+}
+
+
+.logo:hover {
+    transform: scale(1.1);
+
+}
+
+.conmen {
+    width: 100%;
+}
+
+.menu {
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 138px;
+    height: 41px;
+    background: #D9D9D9;
+    border: 2px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 20px 20px;
+}
+
+
+.art {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aparte {
+    border: 5px solid #F1CC5E;
+    width: 913px;
+    height: 214px;
+    text-align: center;
+    background: url(ENTRENO.jpg);
+    transition: transform, 1s;
+    margin-bottom: 3em;
+    background-size: cover;
+
+}
+
+.aparte:hover {
+    transform: scale(1.1);
+}
+
+.apartado {
+    border: 5px solid #F1CC5E;
+    width: 913px;
+    height: 214px;
+    text-align: center;
+    background: url(6823933-vector-set-icons-with-foods-doodle-vector-with-foods-icons-on-black-background-vintage-food-set-icons-sweet-elements-background-for-your-project-menu-cafe-fazer-compras-vetor.jpg);
+    transition: transform, 1s;
+    margin-bottom: 3em;
+    background-size: cover;
+    background-position: center;
+}
+
+.apartado:hover {
+    transform: scale(1.1);
+}
+
+.apartad {
+    border: 5px solid #F1CC5E;
+    width: 913px;
+    height: 214px;
+    text-align: center;
+    background: url(istockphoto-480283734-170667a.jpg);
+    transition: transform, 1s;
+    margin-bottom: 3em;
+    background-size: cover;
+    background-position: center;
+}
+
+.apartad:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+
+a {
+    text-decoration: none;
+}
+
+.tit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 913px;
+    height: 214px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px white;
+    background-image: url(lovepik-golden-background-image_401782626.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-fill-color: transparent;
+    transition: transform 1s;
+
+}

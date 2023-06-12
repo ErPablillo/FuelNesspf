@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Juego de la serpiente</title>
+    <link rel="stylesheet" href="serpstyles.css">
+</head>
+
+<body>
+    <header>
+
+        <div class="contlog"> <a href="index.html">
+                <img class="logo" src="zyro-image (2).png">
+            </a></div>
+    </header>
+    <div class="contmen"></div>
+    <a href="menu.html">
+        <div class="menu">
+            <h3>Menú</h3>
+    </a>
+    </div>
+
+    <article>
+
+        <div class="cont">
+            <canvas id="lienzo" width="400" height="400"></canvas>
+            <p id="contador">Tiempo restante: 120</p>
+        </div>
+    </article>
+
+    <script>
+        var canvas = document.getElementById("lienzo");
+        var ctx = canvas.getContext("2d");
+        var celdas = 20;
+        var tamanoCelda = canvas.width / celdas;
+        var serpentex = celdas / 2;
+        var serpentey = celdas / 2;
+        var direccion = "abajo";
+        var manzanax = Math.floor(Math.random() * celdas);
+        var manzanay = Math.floor(Math.random() * celdas);
+        var manzanaEspecial = false;
+        var cola = [];
+        var longitudInicial = 1;
+        var longitudActual = 1;
+        var tiempoRestante = 120;
+        var intervaloTiempo;
+
+        function dibujarCuadricula() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = "#ddd";
+            for (var x = 0; x <= canvas.width; x += tamanoCelda) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.width);
+                ctx.stroke();
+            }
+
+            for (var y = 0; y <= canvas.height; y += tamanoCelda) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+        }
+
+
+        function dibujarSerpiente() {
+            ctx.fillStyle = "#F5793B";
+            for (var i = 0; i < cola.length; i++) {
+                ctx.fillRect(cola[i].x * tamanoCelda, cola[i].y * tamanoCelda, tamanoCelda, tamanoCelda);
+            }
+            ctx.fillStyle = "black";
+            ctx.fillRect(serpentex * tamanoCelda, serpentey * tamanoCelda, tamanoCelda, tamanoCelda);
+        }
+
+        function dibujarManzana() {
+            if (manzanaEspecial) {
+                ctx.fillStyle = "gold";
+            } else {
+                ctx.fillStyle = "crimson";
+            }
+            ctx.fillRect(manzanax * tamanoCelda, manzanay * tamanoCelda, tamanoCelda, tamanoCelda);
+        }
+
+
+        function mover() {
+            var nuevaCabeza = { x: serpentex, y: serpentey };
+
+
+            if (direccion === "abajo") nuevaCabeza.y++;
+            else if (direccion === "arriba") nuevaCabeza.y--;
+            else if (direccion === "izquierda") nuevaCabeza.x--;
+            else if (direccion === "derecha") nuevaCabeza.x++;
+
+
+            if (nuevaCabeza.x < 0 || nuevaCabeza.x >= celdas || nuevaCabeza.y < 0 || nuevaCabeza.y >= celdas) {
+                finDelJuego();
+                return;
+            }
+
+
+            for (var i = 0; i < cola.length; i++) {
+                if (cola[i].x === nuevaCabeza.x && cola[i].y === nuevaCabeza.y) {
+                    finDelJuego();
+                    return;
+                }
+            }                                                                                                                                                                                                                                            // Comprobamos si la serpiente ha comido la manzana
+            if (nuevaCabeza.x === manzanax && nuevaCabeza.y === manzanay) {
+                manzanax = Math.floor(Math.random() * celdas);
+                manzanay = Math.floor(Math.random() * celdas);
+                longitudActual++;
+            } else {
+                cola.shift();
+            }
+
+            cola.push(nuevaCabeza);
+            serpentex = nuevaCabeza.x;
+            serpentey = nuevaCabeza.y;
+        }
+
+        function cambiarDireccion(event) {
+            if (event.keyCode === 37 && direccion !== "derecha") {
+                direccion = "izquierda";
+            } else if (event.keyCode === 38 && direccion !== "abajo") {
+                direccion = "arriba";
+            } else if (event.keyCode === 39 && direccion !== "izquierda") {
+                direccion = "derecha";
+            } else if (event.keyCode === 40 && direccion !== "arriba") {
+                direccion = "abajo";
+            }
+        }
+
+        function finDelJuego() {
+            clearInterval(intervaloTiempo);
+            alert("¡Fin del juego! Tu puntuación es: " + (longitudActual - longitudInicial));
+            document.location.reload();
+        }
+
+        function contadorTiempo() {
+            if (tiempoRestante === 0) {
+                clearInterval(intervaloTiempo);
+                alert("¡A SEGUIR ENTRENANDO MAQUINA!");
+                document.location.reload();
+            } else {
+                tiempoRestante--;
+                document.getElementById("contador").innerHTML = "Tiempo restante: " + tiempoRestante;
+            }
+        }
+
+
+        dibujarCuadricula();
+        dibujarSerpiente();
+        dibujarManzana();
+
+
+        intervaloTiempo = setInterval(function () {
+            mover();
+            dibujarCuadricula();
+            dibujarSerpiente();
+            dibujarManzana();
+        }, 100);
+
+        document.addEventListener("keydown", cambiarDireccion);
+
+        setInterval(contadorTiempo, 1000);                                                                                                      
+    </script>
+
+</body>
+
+</html>
